@@ -8,7 +8,7 @@ root = tk.Tk()
 # root.title(random_lett(random_letters))
 root.title("by bladesl1w")
 root.config(bg="lightblue")
-root.geometry("377x485")
+root.geometry("387x485")
 root.resizable(False, False)
 root.attributes("-topmost", True)
 
