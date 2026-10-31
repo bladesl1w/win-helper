@@ -17,7 +17,7 @@ def unpin():
   root.attributes("-topmost", False)
 
 def pin():
-  root.attributes("-topmost", True)
+    root.attributes("-topmost", True)
 
 def close_window():
   import getpass
