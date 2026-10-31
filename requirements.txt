@@ -1,0 +1,7 @@
+psutil
+pyperclip
+PyGetWindow
+pyautogui
+keyboard
+pywin32
+pyinstaller
