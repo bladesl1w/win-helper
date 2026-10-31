@@ -25,7 +25,6 @@ def close_window():
   import sys
   import os
   import psutil
-  import webbrowser
   root.attributes("-topmost", False)
   if ctypes.windll.user32.MessageBoxW(0, "Введенные данные могут не сохраниться!\nСохраните все файлы перед продолжением.\n\nВсе равно закрыть программы?", "Внимание!", 4 + 48) == 6:
       root.attributes("-topmost", True) 
