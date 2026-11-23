@@ -3,7 +3,7 @@ from func import (open_browser, tg, code, cmd, powershell,
                   calc, discord, taskmgr, obs, capcut,
                   explorer, regedit, appdata, windhawk, settings, random_lett, random_letters)
 
-
+# one one one
 root = tk.Tk()
 # root.title(random_lett(random_letters))
 root.title("by bladesl1w")
