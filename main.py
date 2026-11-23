@@ -1,9 +1,12 @@
 import tkinter as tk
-from func import (open_browser, tg, code, cmd, powershell,
-                  calc, discord, taskmgr, obs, capcut,
-                  explorer, regedit, appdata, windhawk, settings, random_lett, random_letters)
+from func import (open_browser, cmd, powershell,
+                  calc, taskmgr, explorer, regedit,
+                  appdata, settings, random_lett, random_letters)
 
-# one one one
+from func_programs import (tg, code, discord, obs,
+                    capcut, windhawk, happ)
+
+
 root = tk.Tk()
 # root.title(random_lett(random_letters))
 root.title("by bladesl1w")
@@ -19,6 +22,8 @@ def unpin():
 def pin():
   root.attributes("-topmost", True)
 
+# Закрывает все окна (завершает задачи).
+# Полезно, если компьютер завис
 def close_window():
   import getpass
   import ctypes
@@ -32,9 +37,8 @@ def close_window():
       current_exe_name = os.path.basename(sys.executable)
       skip = ["explorer.exe", "taskhostw.exe", 
               "svchost.exe", "sihost.exe", 
-              "winws.exe", "everything.exe", 
-              "windhawk.exe", "MpDefenderCoreService.exe",
-              current_exe_name].lower()
+              "winws.exe", "MpDefenderCoreService.exe",
+              current_exe_name]
       
       
       for p in psutil.process_iter(['pid', 'name', 'username']):
@@ -46,6 +50,7 @@ def close_window():
           except (psutil.NoSuchProcess, psutil.AccessDenied):
             pass
 
+# Сворачивает все открытые окна
 def close_all_window():
   import ctypes
   LK_WIN = 0x5B
@@ -55,6 +60,8 @@ def close_all_window():
   ctypes.windll.user32.keybd_event(B_R, 0, 2, 0)
   ctypes.windll.user32.keybd_event(LK_WIN, 0, 2, 0)
   
+  
+# Завершает процесс открытой(текущей) программы
 def close_program():
   
   import time
@@ -104,16 +111,16 @@ def close_program():
     
   root.deiconify()  
 
-# Закрывает окно
+# Закрывает окно софта
 def close():
   root.destroy()
   
-# Свернуть программу
+# Свернуть программу софта
 def resize_program():
   root.iconify()
 
 
-# Сверуть окно
+# Сверуть окно открытой(текущей) программы
 def resize_program2():
     import time, ctypes, win32process, psutil
     import pygetwindow as gw
@@ -220,7 +227,7 @@ btn_cc = tk.Button(root, text="CapCut", command=capcut, width=15, height=2, bg="
 btn_cc.grid(row=4, column=1, padx=5, pady=(0, 7))
 
 # Windhawk
-btn_windhawk= tk.Button(root, text="WindHawk", command=windhawk, width=15, height=2, bg="green", fg="black")
+btn_windhawk= tk.Button(root, text="Happ", command=happ, width=15, height=2, bg="green", fg="black")
 btn_windhawk.grid(row=4, column=2, padx=5, pady=(0, 7))
 # btn_cc = tk.Button(root, text="   ", width=15, height=2)#, bg="green", fg="black")
 # btn_cc.grid(row=4, column=2, padx=5, pady=(0, 7))
@@ -231,7 +238,7 @@ btn_close_win2 = tk.Button(root, text="Свернуть\nвсе окна", comma
 btn_close_win2.grid(row=5, column=0, padx=7, pady=(40, 0))
 
 # pass
-btn_close_pass = tk.Button(root, text="   ", width=15, height=2)#, bg="plum", fg="black")
+btn_close_pass = tk.Button(root, text=". . .", width=15, height=2)#, bg="plum", fg="black")
 btn_close_pass.grid(row=5, column=1, padx=7, pady=(40, 0))
 
 # Сворачивает текущее окно

@@ -22,7 +22,7 @@ random_letters = [
 def random_lett(letters_list, length=15):
   return "".join([random.choice(letters_list) for _ in range(length)])
 
-
+# ООП покинул чат)
 def get_windows_pid(hwnd):
   from ctypes import wintypes
   pid = wintypes.DWORD()
@@ -73,46 +73,6 @@ def open_browser():
     return
   args = [exe] if "firefox" in exe.lower() else [exe, "--restore-last-session"]
   subprocess.Popen(args, cwd=os.path.dirname(exe))
-  
-# Открыть телеграм
-def tg():
-  try:
-    subprocess.Popen("start tg://", shell=True)
-  except Exception:
-    ctypes.windll.user32.MessageBoxW(0, "Приложение не найдено!\nСкачайте с магазина приложений", "Ошибка!", 0 + 16)
-    
-def windhawk():
-  windhawk_windows = gw.getWindowsWithTitle('Windhawk')
-  if windhawk_windows:
-    windhawk_win = windhawk_windows[0]
-    if windhawk_win.isMinimized:
-      windhawk_win.restore()
-    windhawk_win.activate()
-  else:
-    path_to_exe = r"C:\Program Files\Windhawk\windhawk.exe"
-    dir_path = r"C:\Program Files\Windhawk"
-    try:
-      subprocess.Popen(path_to_exe, cwd=dir_path)
-    except FileNotFoundError:
-      ctypes.windll.user32.MessageBoxW(0, "Приложение не найдено!\nСначало скачайте приложение с GitHub.", "Ошибка!", 0 + 48) 
-
-# Открывает VsCode
-def code():
-  code_windows = gw.getWindowsWithTitle('Visual Studio Code')
-  if code_windows:
-    code_win = code_windows[0]
-    if code_win.isMinimized:
-      code_win.restore()
-    code_win.activate()
-  else:
-    user_profile = os.environ.get("USERPROFILE")
-    path_to_exe = os.path.join(user_profile, r"AppData\Local\Programs\Microsoft VS Code\Code.exe")
-    try:
-      subprocess.Popen([path_to_exe]) # subprocess.Popen("code", shell=True) 
-    except Exception:
-      ctypes.windll.user32.MessageBoxW(0, "Приложение не найдено!\n\nВозможно у тебя не скачан Visual Studio Code.", "Ошибка!", 0 + 16)
-
-
 
 # открыть cmd
 def cmd():
@@ -238,52 +198,3 @@ def taskmgr():
     task_win.activate()
   else:
     subprocess.Popen("taskmgr", shell=True)
-    
-# Открыть дискорд
-def discord():
-  ds_window = gw.getWindowsWithTitle('Discord')
-  if ds_window:
-    ds_win = ds_window[0]
-    if ds_win.isMinimized:
-      ds_win.restore()
-    ds_win.activate()
-  else:
-    user_profile = os.environ.get("USERPROFILE")
-    exe_path = os.path.join(user_profile, r"AppData\Local\Discord\Discord.exe")
-    try:
-      subprocess.Popen(exe_path, cwd=os.path.dirname(user_profile))
-    except FileNotFoundError:
-      ctypes.windll.user32.MessageBoxW(0, "Приложение Discord не найдено!\nУстанови приложение с оффициального сайта!", "Внимание!", 0 + 16) == 1
-
-
-def capcut():
-  cc_window = gw.getWindowsWithTitle('capcut')
-  if cc_window:
-    cc_win = cc_window[0]
-    if cc_win.isMinimized:
-      cc_win.restore()
-    cc_win.activate()
-  else:
-    user_profile = os.environ.get("USERPROFILE")
-    path_to_exe = os.path.join(user_profile, r"AppData\Local\CapCut\Apps\CapCut.exe")
-    try:
-      subprocess.Popen(path_to_exe, cwd=os.path.dirname(path_to_exe))
-    except FileNotFoundError:
-      ctypes.windll.user32.MessageBoxW(0, "Приложение CapCut не найдено!\nУстановите из магазина приложений.", "Внимание!", 0 + 48) == 1
-
-    
-def obs():
-  obs_window = gw.getWindowsWithTitle('OBS')
-  if obs_window:
-    obs_win = obs_window[0]
-    if obs_win.isMinimized:
-      obs_win.restore()
-    obs_win.activate()
-  else:
-    exe_path = f"{program_files}\\obs-studio\\bin\\64bit\\obs64.exe"
-    work_path = f"{program_files}\\obs-studio\\bin\\64bit"
-    try:
-      subprocess.Popen(exe_path, cwd=work_path)
-    except FileNotFoundError:
-      ctypes.windll.user32.MessageBoxW(0, "Приложение не найдено!", "Внимание!", 0 + 48)
-      
